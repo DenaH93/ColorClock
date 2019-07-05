@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by SzaniszloArpadArchive (http://jsbin.com/newopav/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Barriecito&display=swap" rel="stylesheet">
+<style id="jsbin-css">
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#clock{
+  font-size: 4rem;
+  color: White;
+  text-shadow: 2px 2px 2px black;
+  transform: rotate(45deg);
+  font-family: 'Barriecito', cursive;
+  letter-spacing: .1rem;
+  animation: letter 2s infinite;
+}
+
+@keyframes letter{
+  0%{
+    letter-spacing: 0rem;
+  }
+  50%{
+    letter-spacing: .5rem;    
+  }
+  100%{
+    letter-spacing: 0;
+  }
+}
+
+
+
+</style>
+</head>
+<body>
+  <div id="clock">11:11:11</div>
+<script id="jsbin-javascript">
+function colorClock() {
+
+
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+  
+  if(hours < 10){
+    hours = '0' + hours;
+  }
+  if(minutes < 10){
+    minutes = '0' + minutes;
+  }
+  if(seconds < 10){
+    seconds = '0' + seconds;
+  }
+  
+var clockFace = hours + '#' + minutes + '#' + seconds;
+var hexColor = '#' + seconds + hours + minutes;
+  
+document.getElementById("clock").innerHTML =  clockFace;
+document.body.style.background = hexColor;
+  
+  setTimeout(function(){
+  colorClock();
+},1000)
+  
+  
+}
+
+
+
+colorClock();
+</script>
+</body>
+</html>
